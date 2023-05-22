@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <title>Simple Calculator</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body ng-app="App">
+    <h1>Simple Calculator</h1>
+    <form ng-controller="calculator">
+        <div>
+            <input type="number" ng-model="num1">
+            <select name="" id="" ng-model="operator" ng-options="x for x in operators">
+            </select>
+            <input type="number" ng-model="num2">
+        </div>
+        <input type="submit" id="submit" value="Calculate" ng-click="submit(operator)">
+        <p>{{result}}</p>
+    </form>
+    
+    <script src="./script.js"></script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="calculatorApp">
+<head>
+  <meta charset="UTF-8">
+  <title>Simple Calculator</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.2/angular.min.js"></script>
+  <script src="./app.js"></script>
+</head>
+<body>
+  <div ng-controller="CalculatorController">
+    <h1>Simple Calculator</h1>
+
+    <label for="num1">Number 1:</label>
+    <input type="number" id="num1" ng-model="num1">
+
+    <label for="num2">Number 2:</label>
+    <input type="number" id="num2" ng-model="num2">
+
+    <button ng-click="add()">Add</button>
+    <button ng-click="subtract()">Subtract</button>
+    <button ng-click="multiply()">Multiply</button>
+    <button ng-click="divide()">Divide</button>
+
+    <h2>Result: {{ result }}</h2>
+    <h2>Error: {{ error }}</h2>
+  </div>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-animate.js"></script>
+    <title>Document</title>
+    <style>
+      div {
+        
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        font-size: 24px;
+        text-align:center;
+        font-weight: 600;
+        color: rgb(64, 147, 219);
+        transition: all linear 2s;
+        height: 100px;
+        width: 100px;
+        background-color: rgba(79, 198, 158, 0.429);
+      }
+      #red {
+        color:white;
+        background-color: rgba(198, 87, 79, 0.562);
+      }
+      .ng-hide {
+        color:transparent;
+        translate: 100px -200px;
+        border-radius: 12px;
+        rotate: 360deg;
+        height: 0;
+        width: 0;
+      }
+      body {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body ng-app="App" ng-controller="Ctrl">
+    <!-- Hide the div<input type="checkbox" ng-model="checked" /> -->
+    <div ng-hide="blue" ng-click="toggleHide()">
+        YO!
+    </div>
+    <div ng-hide="red" id="red" ng-click="toggleHide()">
+        All done
+    </div>
+
+    <script>
+      var app = angular.module("App", ["ngAnimate"]);
+      app.controller("Ctrl", function ($scope) {
+        $scope.blue = false;
+        $scope.red = true;
+        $scope.toggleHide = function () {
+          if ($scope.blue === false) {
+            $scope.blue = true;
+            $scope.red = false;
+            return;
+          } else {
+            $scope.blue = false;
+            $scope.red = true;
+            return;
+          }
+        };
+      });
+    </script>
+  </body>
+</html>

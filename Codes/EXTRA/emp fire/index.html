@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Employee fire check</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 16px;
+        color: #333;
+      }
+
+      .input-container {
+        margin-bottom: 10px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+      }
+
+      input {
+        padding: 5px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+
+      button {
+        padding: 10px 20px;
+        background-color: #333;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        margin: 10px 10px 0 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      ng-controller="mainCtrl"
+      style="height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center"
+    >
+      <h1>Employee fire check</h1>
+      <div style="display: flex; flex-direction: column; gap: 20px">
+        <div class="input-container" ng-repeat="score in scores">
+          <label for="score.id">Score:</label>
+          <input type="number" id="score.id" ng-model="score.score" />
+        </div>
+      </div>
+      <button ng-click="addScore(score)">Add Score</button>
+      <button ng-click="checkFirePossiblity()">Check Fire Possiblity</button>
+      <div ng-show="fire != undefined">
+        <div ng-if="fire">
+          <h4>Employee has a chance to be fired</h4>
+        </div>
+        <div ng-if="!fire">
+          <h4>Employee will not be fired</h4>
+        </div>
+      </div>
+    </div>
+    <script>
+      var app = angular.module('myApp', []);
+      app.service('scoreEvaluvation', function () {
+        this.checkFire = function (scoreList) {
+          let s = 0;
+          for (let i = 0; i < scoreList.length; i++) {
+            s += scoreList[i].score;
+          }
+          let avg = s / scoreList.length;
+          if (avg > 60) {
+            return false;
+          } else {
+            return true;
+          }
+        };
+      });
+      app.controller('mainCtrl', function ($scope, scoreEvaluvation) {
+        $scope.scores = [
+          { id: 0, score: 0 },
+          { id: 1, score: 0 },
+          { id: 2, score: 0 },
+        ];
+        $scope.addScore = function (score) {
+          $scope.scores.push({ id: $scope.scores.length, score: 0 });
+        };
+        $scope.checkFirePossiblity = function () {
+          $scope.fire = scoreEvaluvation.checkFire($scope.scores);
+        };
+      });
+    </script>
+  </body>
+</html>

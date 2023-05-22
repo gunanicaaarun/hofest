@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>AngularJS Form Validation</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script>
+        angular.module('myApp', [])
+            .controller('FormController', function ($scope) {
+                $scope.submitForm = function () {
+                    if ($scope.myForm.$valid) {
+                        alert("Form submitted successfully!");
+                    } else {
+                        alert("Please fix the errors in the form.");
+                    }
+                };
+            });
+    </script>
+</head>
+
+<body ng-app="myApp" ng-controller="FormController">
+    <h1>AngularJS Form Validation</h1>
+    <form name="myForm" ng-submit="submitForm()" novalidate>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" ng-model="name" required><br>
+        <span ng-show="myForm.name.$error.required && myForm.name.$dirty">
+            Name is required.
+        </span><br><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" ng-model="email" required><br>
+        <span ng-show="myForm.email.$error.required && myForm.email.$dirty">
+            Email is required.
+        </span>
+        <span ng-show="myForm.email.$error.email && myForm.email.$dirty">
+            Invalid email format.
+        </span><br><br>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" ng-model="password" ng-minlength="8" required><br>
+        <span ng-show="myForm.password.$error.required && myForm.password.$dirty">
+            Password is required.
+        </span>
+        <span ng-show="myForm.password.$error.minlength && myForm.password.$dirty">
+            Password should be at least 8 characters long.
+        </span><br><br>
+
+        <input type="submit" value="Submit">
+    </form>
+</body>
+
+</html>

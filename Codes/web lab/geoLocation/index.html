@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Geo location</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="./script.js"></script>
+  </head>
+  <body ng-app="App">
+    <div ng-controller="MainController">
+      <button ng-click="getLocation()">Get Location</button>
+      <h3>Latitude: {{latitude}}</h3>
+      <h3>Longitude: {{longitude}}</h3>
+    </div>
+  </body>
+</html>

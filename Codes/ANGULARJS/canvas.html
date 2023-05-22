@@ -1,0 +1,55 @@
+<html>
+    <head>
+        <title>teddy</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+    </head>
+    <body ng-app="myApp" ng-controller="myCntrl">
+        <input type="number" ng-model="x" placeholder="X coordinate">
+        <input type="number" ng-model="y" placeholder="Y coordinate">
+        <button ng-click="draw()">Draw</button>
+        <div>
+            <canvas id="canvas"></canvas>
+        </div>
+
+    </body>
+    <script>
+        var app=angular.module("myApp",[]);
+        app.controller("myCntrl",function($scope){
+            var canvas=document.getElementById("canvas");
+            var context=canvas.getContext("2d");
+            $scope.draw=function(){
+                var x=$scope.x;
+                var y=$scope.y;
+                context.beginPath();
+                context.arc(x,y,50,0,360);
+                context.stroke();
+                context.closePath();
+            };
+
+        });
+    </script>
+</html>
+
+
+<!--rectangle script code
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<canvas id="myCanvas" width="200" height="100"
+style="border:1px solid #c3c3c3;">
+Your browser does not support the canvas element.
+</canvas>
+
+<script>
+var canvas = document.getElementById("myCanvas");
+var ctx = canvas.getContext("2d");
+ctx.fillStyle = "#FF0000";
+ctx.fillRect(0,0,150,75);
+</script>
+
+</body>
+</html>
+
+-->

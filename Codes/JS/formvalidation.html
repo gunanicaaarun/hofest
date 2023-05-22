@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Form Validation</title>
+  <script>
+    function validateForm() {
+      var name = document.getElementById("name").value;
+      var email = document.getElementById("email").value;
+      var password = document.getElementById("password").value;
+
+      var nameRegex = /^[a-zA-Z\s]+$/;
+      var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+      if (name == "") {
+        alert("Please enter your name.");
+        return false;
+      }
+
+      if (!nameRegex.test(name)) {
+        alert("Please enter a valid name.");
+        return false;
+      }
+
+      if (email == "") {
+        alert("Please enter your email.");
+        return false;
+      }
+
+      if (!emailRegex.test(email)) {
+        alert("Please enter a valid email.");
+        return false;
+      }
+
+      if (password == "") {
+        alert("Please enter a password.");
+        return false;
+      }
+
+      if (password.length < 8) {
+        alert("Password should be at least 8 characters long.");
+        return false;
+      }
+
+      // Additional validation logic can be added here
+
+      return true;
+    }
+  </script>
+</head>
+<body>
+  <h1>Form Validation Example</h1>
+  <form name="myForm" onsubmit="return validateForm()">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name"><br><br>
+
+    <label for="email">Email:</label>
+    <input type="text" id="email" name="email"><br><br>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password"><br><br>
+
+    <input type="submit" value="Submit">
+  </form>
+</body>
+</html>

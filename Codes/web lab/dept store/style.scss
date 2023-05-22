@@ -1,0 +1,124 @@
+@mixin flex($d,$j,$a){
+    display:flex;
+    flex-direction: $d;
+    justify-content: $j;
+    align-items: $a;
+}
+
+body{
+    width:100vw;
+    nav{
+        height:60px;
+        width:100vw;
+        @include flex(column,center,flex-start);
+        position:fixed;
+        top:0px;
+        left:0px;
+        padding:20px;
+        background-color: rgba(238, 238, 238, 1);
+        font-size: 38px;
+        font-weight: 900;
+        font-family: Arial, Helvetica, sans-serif;
+        box-shadow: 3px 1px 3px;
+        border-bottom-left-radius: 30px;
+        border-bottom-right-radius: 12px;
+    }
+    
+    #main{
+        margin-top:150px;
+        width:100%;
+        #welcome{
+            margin-left:20px;
+            background-color: rgba(238, 238, 238, 0.641); 
+            width:fit-content;
+            padding:20px;
+            border-radius: 12px;   
+        }
+        #product-list{
+            padding:10px;
+            p{
+                margin-bottom:20px;
+            }
+            @include flex(column,center,center);
+            width:100%;
+            #product-row{
+                width:100%;
+                @include flex(row,space-evenly,center);
+                #product{
+                    @include flex(column,center,center);
+                    background-color: antiquewhite;
+                    padding:20px;
+                    height:60px;
+                    width:100px;
+                    margin:10px;
+                    border-radius: 10px;
+                    p{
+                        margin:5px;
+                        font-size:15px;
+                    }
+
+                }
+            }
+
+        }
+        #table{
+            margin-top:300px;
+            @include flex(column,center,center);
+        }
+
+
+    }
+    
+}
+
+p{
+    font-size: large;
+    font-weight: 500;
+    color:rgb(31, 31, 31);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+a{
+    text-decoration: none;
+}
+
+
+table{
+    width:600px;
+    tr th, tr td{
+        p{
+            text-align: center;
+        }
+        padding:10px;
+        border: 1px solid grey;
+    }
+    tr{
+        #groupedProducts{
+            @include flex(row,space-around,center);
+        }
+    }
+}
+
+
+#buttonDiv{
+    width:100%;
+    margin-top:20px;
+    @include flex(row,center,center);
+    button{
+        @include flex(row,center,center);
+        background-color: rgb(79, 152, 255);
+        outline:none;
+        border:none;
+        width:100px;
+        height:40px;
+        border-radius: 5px;
+        p{
+            color:white;
+            font-weight: 600;
+        }
+        &:hover{            
+            background-color: rgb(78, 197, 86);
+            
+        }
+    }
+}

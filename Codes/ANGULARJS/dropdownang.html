@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="angular.min.js">
+    </script>
+</head>
+<body ng-app="">
+    topics to choose: <br>
+
+    <select id="selection" ng-model="myval">
+        <option value="cars">cars</option>
+        <option value="arun">arun</option>
+        <option value="bhuvan">bhuvan</option>
+    </select>
+<hr>
+<div ng-switch="myval">
+<div ng-switch-when="cars">
+    <h1>lets talk about cars</h1>
+    car is a car u idiot.
+</div>
+<div ng-switch-when="arun">
+    <h1>lets talk about arun</h1>
+    i dono wtf is this.
+</div>
+<div ng-switch-when="bhuvan">
+    <h1>lets talk about bhuvan</h1>
+    its is a name u idiot.
+</div>
+<div ng-switch-when="bhuvan">
+    <h1>lets talk about bhuvan</h1>
+    its is a name u idiot.
+</div>
+<div ng-switch-default>
+    <h1>lets talk about bhuvan</h1>
+    its is a name u idiot.
+</div>
+</div>
+<hr>
+
+</body>
+</html>

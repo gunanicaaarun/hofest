@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>AngularJS Calculator</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <style>
+        .calculator {
+            width: 200px;
+            background-color: #f4f4f4;
+            padding: 10px;
+        }
+
+        input[type="button"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 5px;
+            font-size: 16px;
+        }
+    </style>
+    <script>
+        angular.module('myApp', [])
+            .controller('CalculatorController', function ($scope) {
+                $scope.num1 = null;
+                $scope.num2 = null;
+                $scope.operator = "+";
+                $scope.result = null;
+
+                $scope.calculate = function () {
+                    var num1 = parseFloat($scope.num1);
+                    var num2 = parseFloat($scope.num2);
+
+                    switch ($scope.operator) {
+                        case "+":
+                            $scope.result = num1 + num2;
+                            break;
+                        case "-":
+                            $scope.result = num1 - num2;
+                            break;
+                        case "*":
+                            $scope.result = num1 * num2;
+                            break;
+                        case "/":
+                            $scope.result = num1 / num2;
+                            break;
+                    }
+                };
+            });
+    </script>
+</head>
+
+<body ng-app="myApp" ng-controller="CalculatorController">
+    <h1>AngularJS Calculator</h1>
+    <div class="calculator">
+        <input type="text" ng-model="num1" placeholder="Enter a number">
+        <input type="text" ng-model="num2" placeholder="Enter another number">
+        <select ng-model="operator">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+        </select>
+        <input type="button" value="Calculate" ng-click="calculate()">
+        <div>Result: {{ result }}</div>
+    </div>
+</body>
+
+</html>

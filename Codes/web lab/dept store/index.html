@@ -1,0 +1,65 @@
+<!-- create a website for a department store. The website displays 20 items along with thier prices.
+Clicking any item should lead you to the bottom of the page where there is a table that has items with the same price grouped together.
+a confirm buttom, on clicked must display the price of the selected item. -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Department store</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body ng-app="store" ng-controller="mainCtrl">
+    <nav>TrendBazaar</nav>
+    <div id="main">
+      <div id="welcome">
+        <p>Welcome</p>
+        <p>All the things you are looking for are available here</p>
+      </div>
+      <div id="product-list">
+        <p>Items list</p>
+        <div id="product-row" ng-repeat="x in products">
+          <a
+            href="#table"
+            id="product"
+            for="product"
+            ng-repeat="y in x.group"
+          >
+            <p id="name">{{y}}</p>
+            <p id="price">₹{{x.price}}</p>
+            <input href="#table" name="product" type="checkbox" ng-click="getSelectedValue(x.price)" />
+        </a>
+        </div>
+      </div>
+      <div id="table">
+        <p>List of Products grouped together based on their price</p>
+        <table>
+            <tr>
+                <th>
+                    Items
+                </th>
+                <th>
+                    price
+                </th>
+            </tr>
+            <tr ng-repeat="x in products">
+                <td id="groupedProducts">
+                    <p ng-repeat="y in x.group">{{y}}</p>
+                </td>
+                <td>
+                    <p>{{x.price}}</p>
+                </td>
+            </tr>
+        </table>
+      </div>
+
+    <div id="buttonDiv"">
+        <button ng-click="submit()">
+            <p>Confirm</p>
+        </button>
+    </div>
+    
+    </div>
+    <script src="./script.js"></script>
+  </body>
+</html>

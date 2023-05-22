@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>JavaScript Animation Examples</title>
+    <style>
+        .box {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+        }
+
+        .box1 {
+            background-color: red;
+            top: 50px;
+            left: 50px;
+        }
+
+        .box2 {
+            background-color: blue;
+            top: 150px;
+            left: 150px;
+        }
+
+        .box3 {
+            background-color: green;
+            top: 250px;
+            left: 250px;
+        }
+    </style>
+    <script>
+        // Example 1: Move an element diagonally
+        function moveDiagonal() {
+            var element = document.getElementById("box1");
+            var positionX = 50;
+            var positionY = 50;
+            var speedX = 2;
+            var speedY = 2;
+
+            setInterval(function () {
+                positionX += speedX;
+                positionY += speedY;
+
+                if (positionX >= 400 || positionX <= 50) {
+                    speedX = -speedX;
+                }
+
+                if (positionY >= 400 || positionY <= 50) {
+                    speedY = -speedY;
+                }
+
+                element.style.left = positionX + "px";
+                element.style.top = positionY + "px";
+            }, 10);
+        }
+
+        // Example 2: Rotate an element
+        function rotateElement() {
+            var element = document.getElementById("box2");
+            var angle = 0;
+            var rotationSpeed = 1;
+
+            setInterval(function () {
+                angle += rotationSpeed;
+                element.style.transform = "rotate(" + angle + "deg)";
+            }, 10);
+        }
+
+        // Example 3: Fade in and out an element
+        function fadeElement() {
+            var element = document.getElementById("box3");
+            var opacity = 1;
+            var fadeSpeed = 0.01;
+            var isFadingOut = true;
+
+            setInterval(function () {
+                if (isFadingOut) {
+                    opacity -= fadeSpeed;
+                    if (opacity <= 0) {
+                        isFadingOut = false;
+                    }
+                } else {
+                    opacity += fadeSpeed;
+                    if (opacity >= 1) {
+                        isFadingOut = true;
+                    }
+                }
+
+                element.style.opacity = opacity;
+            }, 10);
+        }
+    </script>
+</head>
+
+<body>
+    <h1>JavaScript Animation Examples</h1>
+    <div class="box box1" id="box1"></div>
+    <div class="box box2" id="box2"></div>
+    <div class="box box3" id="box3"></div>
+
+    <script>
+        moveDiagonal();
+        rotateElement();
+        fadeElement();
+    </script>
+</body>
+
+</html>

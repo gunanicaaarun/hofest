@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html ng-app="wordleGame">
+
+<head>
+  <title>Wordle Game</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <script src="app.js"></script>
+</head>
+
+<body>
+  <div ng-controller="GameController as game">
+    <h1>Wordle Game</h1>
+    <p>Guess a 6-letter word:</p>
+    <input type="text" ng-model="game.guess" maxlength="6" ng-disabled="game.isGameOver()">
+    <button ng-click="game.checkGuess()" ng-disabled="game.isGameOver()">Guess</button>
+    <p ng-show="game.isGameOver()">Game Over! The word was "{{ game.word }}".</p>
+    <p ng-show="game.isGameWon()">Congratulations! You guessed the word "{{ game.word }}" correctly!</p>
+    <h2>Tries Left: {{ game.triesLeft }}</h2>
+    <ul>
+      <li ng-repeat="attempt in game.attempts">{{ attempt | wordleMask }}</li>
+    </ul>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Form Validation</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <style>
+        body{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        body div{
+            margin-top:100px;
+        }
+        #backBtn{
+            margin:20px;
+            width:60px;
+            height:20px;
+        }
+    </style>
+  </head>
+  <body ng-app="myApp">
+    <div  ng-controller="formCtrl" >
+        <div ng-show="first" style="margin-top:0px;display:flex;flex-direction:row;justify-content:center;align-items: center;">
+            <button id="backBtn" ng-click="reload()">Back</button>
+            <h1 style="font-family: sans-serif;">
+                You have sucessfully logged In
+            </h1>
+        </div>
+      <form ng-show="form" name="myForm" novalidate style="display:flex;flex-direction:column;width:200px;">
+        Name: <input style="margin:5px" type="text" name="name" ng-model="user.name" required>
+        <div style="margin:5px;color:rgba(192, 36, 36, 0.663);font-family: Arial, Helvetica, sans-serif;font-size: 12px;" ng-show="myForm.name.$touched && myForm.name.$error.required">
+          Name is required.
+        </div>
+
+        Email: <input  style="margin:5px"  type="email" name="email" ng-model="user.email" required />
+        <div style="margin:5px;color:rgba(192, 36, 36, 0.663);font-family: Arial, Helvetica, sans-serif;font-size: 12px;" ng-show="myForm.email.$touched && myForm.email.$error.required">
+          Email is required.
+        </div>
+        <div style="margin:5px;color:rgba(192, 36, 36, 0.663);font-family: Arial, Helvetica, sans-serif;font-size: 12px;" ng-show="myForm.email.$touched && myForm.email.$error.email">
+          Invalid email format.
+        </div>
+
+        <button  style="margin:5px"  ng-click="submitForm()" type="submit" ng-disabled="myForm.$invalid">Submit</button>
+      </form>
+    </div>
+
+    
+    <script src="./script.js"></script>
+  </body>
+</html>

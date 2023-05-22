@@ -1,0 +1,36 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Contact Form - PHP/MySQL Demo Code</title>
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script> <body>
+<fieldset>
+<legend>Contact Form</legend>
+<form ng-app="" name="frmContact" method="post" action="http://localhost/php/test1.php"> <p>
+<label for="Name">Name </label>
+<input type="text" name="txtName" id="txtName" ng-model="txtName">
+</p>
+<p>
+<label for="email">Email</label>
+<input type="text" name="txtEmail" id="txtEmail" ng-model="txtEmail">
+</p>
+<p>
+<label for="phone">Phone</label>
+<input type="text" name="txtPhone" id="txtPhone" ng-model="txtPhone">
+</p>
+<p>
+<label for="message">Message</label>
+<textarea name="txtMessage" id="txtMessage" ng-model="txtMessage"></textarea>
+</p>
+<p>&nbsp;</p>
+<p>
+<input type="submit" name="Submit" id="Submit" value="Submit">
+</p>
+<h1>You entered: {{txtName}}</h1>
+<h1>You entered: {{txtEmail}}</h1>
+<h1>You entered: {{txtPhone}}</h1>
+<h1>You entered: {{txtMessage}}</h1>
+</form>
+</fieldset>
+</body>
+</html>

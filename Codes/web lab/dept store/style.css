@@ -1,0 +1,131 @@
+body {
+  width: 100vw;
+}
+body nav {
+  height: 60px;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  padding: 20px;
+  background-color: rgb(238, 238, 238);
+  font-size: 38px;
+  font-weight: 900;
+  font-family: Arial, Helvetica, sans-serif;
+  box-shadow: 3px 1px 3px;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 12px;
+}
+body #main {
+  margin-top: 150px;
+  width: 100%;
+}
+body #main #welcome {
+  margin-left: 20px;
+  background-color: rgba(238, 238, 238, 0.641);
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 20px;
+  border-radius: 12px;
+}
+body #main #product-list {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+body #main #product-list p {
+  margin-bottom: 20px;
+}
+body #main #product-list #product-row {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+body #main #product-list #product-row #product {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: antiquewhite;
+  padding: 20px;
+  height: 60px;
+  width: 100px;
+  margin: 10px;
+  border-radius: 10px;
+}
+body #main #product-list #product-row #product p {
+  margin: 5px;
+  font-size: 15px;
+}
+body #main #table {
+  margin-top: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+p {
+  font-size: large;
+  font-weight: 500;
+  color: rgb(31, 31, 31);
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+table {
+  width: 600px;
+}
+table tr th, table tr td {
+  padding: 10px;
+  border: 1px solid grey;
+}
+table tr th p, table tr td p {
+  text-align: center;
+}
+table tr #groupedProducts {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#buttonDiv {
+  width: 100%;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+#buttonDiv button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(79, 152, 255);
+  outline: none;
+  border: none;
+  width: 100px;
+  height: 40px;
+  border-radius: 5px;
+}
+#buttonDiv button p {
+  color: white;
+  font-weight: 600;
+}
+#buttonDiv button:hover {
+  background-color: rgb(78, 197, 86);
+}/*# sourceMappingURL=style.css.map */

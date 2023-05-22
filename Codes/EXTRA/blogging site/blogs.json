@@ -1,0 +1,22 @@
+[
+  {
+    "blogId": 1,
+    "blogTitle": "Why I love JavaScript",
+    "blogContent": "JavaScript is a dynamic programming language. It is lightweight and most commonly used as a part of web pages, whose implementations allow client-side script to interact with the user and make dynamic pages. It is an interpreted programming language with object-oriented capabilities."
+  },
+  {
+    "blogId": 2,
+    "blogTitle": "Why I love Java",
+    "blogContent": "Java is a programming language and computing platform first released by Sun Microsystems in 1995. There are lots of applications and websites that will not work unless you have Java installed, and more are created every day. Java is fast, secure, and reliable. From laptops to datacenters, game consoles to scientific supercomputers, cell phones to the Internet, Java is everywhere!"
+  },
+  {
+    "blogId": 3,
+    "blogTitle": "Why I love Python",
+    "blogContent": "Python is a programming language that lets you work quickly and integrate systems more effectively. Python is powerful... and fast; plays well with others; runs everywhere; is friendly & easy to learn; is Open."
+  },
+  {
+    "blogId": 4,
+    "blogTitle": "Why I love PHP",
+    "blogContent": "PHP is a server scripting language, and a powerful tool for making dynamic and interactive Web pages. PHP is a widely-used, free, and efficient alternative to competitors such as Microsoft's ASP."
+  }
+]
